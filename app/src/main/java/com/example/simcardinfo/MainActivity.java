@@ -20,6 +20,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -86,8 +87,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        TelephonyManager tm=(TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        String CountryIs = tm.getSimCountryIso();
+
         String imsi = PhoneUtils.getIMSI();
-        Log.d("imsi-debug","imsi=  " + imsi);
+        Log.d("imsi-debug","imsi=  " + imsi + "   CountryIs=   " + CountryIs);
         data = new StringBuilder();
 //        mSubscriptionManager = SubscriptionManager.from(MainActivity.this);
         mText = (TextView) findViewById(R.id.text_info);
