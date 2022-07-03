@@ -29,6 +29,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.PhoneUtils;
 import com.example.dualsim.DualsimBase;
 import com.example.dualsim.TelephonyManagement;
 import com.example.simcardinfo.utils.PermissionUtils;
@@ -85,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        setContentView(R.layout.activity_main);
+        String imsi = PhoneUtils.getIMSI();
+        Log.d("imsi-debug","imsi=  " + imsi);
         data = new StringBuilder();
 //        mSubscriptionManager = SubscriptionManager.from(MainActivity.this);
         mText = (TextView) findViewById(R.id.text_info);
